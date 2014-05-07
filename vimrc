@@ -9,6 +9,9 @@ filetype plugin indent on
 " enable syntax hightlight and completion
 syntax on
 
+" enable long line wrap
+set wrap
+
 "--------
 " Vim UI
 "--------
