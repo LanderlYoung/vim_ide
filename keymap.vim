@@ -23,7 +23,6 @@ func IndentAll()
 endfunc
 map <C-F12>  :call IndentAll() <CR>
 
-:inoremap , , <ESC>a
 
 "C，C++,Java 按Ctrl-F5编译运行
 map <C-F5> :call CompileRun()<CR>
@@ -83,4 +82,25 @@ func! Rungdb()
         exec "!jdb  %<"
     endif
 endfunc
+
+:inoremap , , <ESC>a
+
+"""for ctags"""
+"set tags+="D:\Program Files\Vim\vimfiles\vim_ide\tags"
+
+func! Gentag()
+    exec '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .'
+endfunc
+command! -nargs=0 Gentag call Gentag()
+"""
+
+"""for cscope"""
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+cs add "D:\Program Files\Vim\vimfiles\vim_ide\cscope.out" "D:\Program Files\clang\3.2_64bit\include"
+func! Genscope()
+    exec '!cscope -Rbq .'
+endfunc
+command! -nargs=0 Genacope call Genscope()
+"""
+
 
