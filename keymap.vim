@@ -106,8 +106,7 @@ if has("cscope")
     if filereadable("cscope.out")
         cs add cscope.out
         "else add database pointed to by environment
-    elseif
-        $CSCOPE_DB != ""
+    elseif $CSCOPE_DB != ""
         cs add $CSCOPE_DB
     endif
     set csverb
