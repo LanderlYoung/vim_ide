@@ -97,9 +97,9 @@ command! -nargs=0 Gentag call Gentag()
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 "cs add "D:\Program Files\Vim\vimfiles\vim_ide\cscope.out" "D:\Program Files\clang\3.2_64bit\include"
 func! Genscope()
-    exec '!cscope -Rbq .'
+    exec '!cscope -Rbq '
 endfunc
-command! -nargs=0 Genacope call Genscope()
+command! -nargs=0 Genscope call Genscope()
 """
 
 inoremap \fn <C-R>=expand("%:t:r")<CR>
