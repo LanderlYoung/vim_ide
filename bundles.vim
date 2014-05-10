@@ -51,6 +51,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/syntastic'
 Plugin 'bronson/vim-trailing-whitespace'
+"cscope
+Plugin 'simplyzhao/cscope_maps.vim'
 
 "-------------
 " Other Utils
