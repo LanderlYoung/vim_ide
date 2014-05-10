@@ -96,6 +96,23 @@ command! -nargs=0 Gentag call Gentag()
 """for cscope"""
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 "cs add "D:\Program Files\Vim\vimfiles\vim_ide\cscope.out" "D:\Program Files\clang\3.2_64bit\include"
+"
+if has("cscope")
+    "set csprg=/usr/local/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+    "add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+        "else add database pointed to by environment
+    elseif
+        $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set csverb
+endif
+
 func! Genscope()
     exec '!cscope -Rbq '
 endfunc
