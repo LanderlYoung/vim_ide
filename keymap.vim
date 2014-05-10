@@ -7,11 +7,10 @@ map! <C-A> <Esc>ggVG
 vmap <C-c> "+y
 
 func JavaMap()
-    inoremap <C-k> System.out.println(
-    inoremap <C-l> public static void main(String[] args) { <CR>
+    inoremap \prt System.out.println
+    inoremap \main public static void main(String[] args) 
 endfunc
 autocmd FileType java exec ":call JavaMap()"
-
 
 func IndentAll()
     let lineNum = line(".")
@@ -83,7 +82,7 @@ func! Rungdb()
     endif
 endfunc
 
-:inoremap , , <ESC>a
+:inoremap , , 
 
 """for ctags"""
 "set tags+="D:\Program Files\Vim\vimfiles\vim_ide\tags"
@@ -96,11 +95,12 @@ command! -nargs=0 Gentag call Gentag()
 
 """for cscope"""
 set cscopequickfix=s-,c-,d-,i-,t-,e-
-cs add "D:\Program Files\Vim\vimfiles\vim_ide\cscope.out" "D:\Program Files\clang\3.2_64bit\include"
+"cs add "D:\Program Files\Vim\vimfiles\vim_ide\cscope.out" "D:\Program Files\clang\3.2_64bit\include"
 func! Genscope()
     exec '!cscope -Rbq .'
 endfunc
 command! -nargs=0 Genacope call Genscope()
 """
 
-
+inoremap \fn <C-R>=expand("%:t:r")<CR>
+inoremap \fe <C-R>=expand("%:t")<CR>
