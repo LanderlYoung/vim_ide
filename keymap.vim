@@ -1,14 +1,14 @@
 """""""""""""""'"键盘命令
 "
 " 映射全选 ctrl+a
-map <C-A> ggVG
-map! <C-A> <Esc>ggVG
+"map <C-A> ggVG
+"map! <C-A> <Esc>ggVG
 " 选中状态下 Ctrl+c 复制
 vmap <C-c> "+y
 
 func JavaMap()
-    inoremap \prt System.out.println
-    inoremap \main public static void main(String[] args) 
+    inoremap \sout System.out.println
+    inoremap \psvm public static void main(String[] args) {
 endfunc
 autocmd FileType java exec ":call JavaMap()"
 
@@ -38,8 +38,8 @@ func! CompileRun()
     exec "w"
     if &filetype == 'c' || &filetype == 'cpp'
         exec "!make %< && ./%<"
-    elseif &filetype == 'java' 
-        exec "!javac %" 
+    elseif &filetype == 'java'
+        exec "!javac %"
         exec "!java %<"
     elseif &filetype == 'bat'
         exec "! %"
@@ -52,8 +52,8 @@ func! Compile()
     exec "w"
     if &filetype == 'c' || &filetype == 'cpp'
         exec "!make %<"
-    elseif &filetype == 'java' 
-        exec "!javac %" 
+    elseif &filetype == 'java'
+        exec "!javac %"
     elseif &filetype == 'bat'
         exec "! %"
     endif
@@ -65,7 +65,7 @@ func! Run()
         exec "! ./%<"
     elseif &filetype == 'cpp'
         exec "! ./%<"
-    elseif &filetype == 'java' 
+    elseif &filetype == 'java'
         exec "!java %<"
     elseif &filetype == 'bat'
         exec ":!%"

@@ -1,8 +1,17 @@
-VIM_IDE
+VIM\_IDE
 ======
 This is a vim configuration files project.
 Powered By [Vundle](http://github.com/gmarik/vundle) and [dot-vimrc](https://github.com/humiaozuzu/dot-vimrc)
-to install Vundle use
+to install this
+
 ``` sh
- git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#clone
+git clone git@github.com:LanderlYoung/vim_ide.git <somewhere>
+cd <somewhere>
+#setup
+./install.sh
 ```
+
+then all done!
+
+have fun!
