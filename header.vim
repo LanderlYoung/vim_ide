@@ -6,30 +6,29 @@ autocmd BufNewFile *.js,*.go,*.py,*.cpp,*.[ch],*.sh,*.java exec ":call SetTitle(
 func SetTitle()
 	"如果文件类型为.sh文件
 	if &filetype == 'sh' || &filetype == 'python'
-		call setline(1,"\#########################################################################")
-		call append(line("."), "\# File Name:\t\t".expand("%"))
-		call append(line(".")+1, "\# Author:\t\t\tLanderl Young")
-		call append(line(".")+2, "\# e-Mail:\t\t\tLanderlYoung@gmail.com")
-		call append(line(".")+3, "\# Created Time:\t\t".strftime("%c"))
-		call append(line(".")+4, "\#########################################################################")
 		if &filetype == 'python'
-			call append(line(".")+5, "\#!/usr/bin/python")
+            call setline(1, "\#!/usr/bin/python")
 		else
-			call append(line(".")+5, "\#!/bin/bash")
+            call setline(1, "\#!/bin/bash")
 		endif
-		"call append(line(".")+6, "")
+		call append(line("."), "\#########################################################################")
+		call append(line(".")+1, "\# File Name:\t\t".expand("%"))
+		call append(line(".")+2, "\# Author:\t\t\tLanderl Young")
+		call append(line(".")+3, "\# e-Mail:\t\t\tLanderlYoung@gmail.com")
+		call append(line(".")+4, "\# Created Time:\t\t".strftime("%c"))
+		call append(line(".")+5, "\#########################################################################")
 	else
 		call setline(1, "/*************************************************************************")
 		call append(line("."), "  > File Name:     ".expand("%"))
 		call append(line(".")+1, "  > Author:        Landerl Young")
-		call append(line(".")+2, "  > Mail:          LanderlYoung@gmail.com ")
+		call append(line(".")+2, "  > Mail:          LanderlYoung@gmail.com")
 		call append(line(".")+3, "  > Created Time:  ".strftime("%c"))
 		call append(line(".")+4, " ************************************************************************/")
 		call append(line(".")+5, "")
 	endif
 
 	if &filetype == 'java'
-		"call append(line(".")+6,"public class ".expand("%<").expand(" {"))
+		call append(line(".")+6,"public class ".expand("%<").expand(" {"))
 		"call append(line(".")+7,"")
 	endif
 
