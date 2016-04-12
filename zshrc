@@ -115,6 +115,14 @@ function color {
     colordiff -U "$@" | less -RF
 }
 
+alias colordiff="colordiff -u 8"
+alias diff="colordiff - u 8"
+
+#add machine depend configs
+if [[ -e ~/.zshmd ]];then
+    source ~/.zshmd
+fi
+
 #login greet
 echo -e '   [TODOs]:'
 todo ls --all
