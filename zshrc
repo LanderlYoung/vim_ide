@@ -89,6 +89,7 @@ source $ZSH/oh-my-zsh.sh
 export ANDROID_SDK=/Users/young/Applications/android/sdk
 export ANDROID_HOME=${ANDROID_SDK}
 export ANDROID_NDK=/Users/young/Applications/android/ndk
+export NDK_HOME=/Users/young/Applications/android/ndk
 
 export PATH=$PATH:$ANDROID_SDK/platform-tools:$ANDROID_NDK
 
