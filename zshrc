@@ -91,7 +91,10 @@ export ANDROID_HOME=${ANDROID_SDK}
 export ANDROID_NDK=/Users/young/Applications/android/ndk
 export NDK_HOME=/Users/young/Applications/android/ndk
 
-export PATH=$PATH:$ANDROID_SDK/platform-tools:$ANDROID_NDK
+PATH=$PATH:$ANDROID_SDK/platform-tools:$ANDROID_NDK
+PATH=$PATH:~/Applications/tools/bin/
+
+export PATH
 
 DEFAULT_USER=young
 eval "$(thefuck --alias fuck)"
@@ -116,8 +119,9 @@ function color {
     colordiff -U "$@" | less -RF
 }
 
-alias colordiff="colordiff -u 8"
-alias diff="colordiff - u 8"
+alias colordiff='colordiff -u 8'
+alias diff='colordiff - u 8'
+alias rm='trash'
 
 #add machine depend configs
 if [[ -e ~/.zshmd ]];then
