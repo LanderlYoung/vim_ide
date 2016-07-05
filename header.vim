@@ -1,6 +1,6 @@
 """""""""""""""""""""""""""""新文件标题""""""""""""""""""""""""""""""
 "新建.c,.h,.sh,.java文件，自动插入文件头
-autocmd BufNewFile *.js,*.go,*.py,*.cpp,*.[ch],*.sh,*.java exec ":call SetTitle()"
+autocmd BufNewFile *.js,*.go,*.py,*.cpp,*.cc,*.[ch],*.sh,*.java exec ":call SetTitle()"
 
 "定义函数SetTitle，自动插入文件头
 func SetTitle()
@@ -37,7 +37,7 @@ func SetTitle()
 		"call append(line(".")+7,"")
 	endif
 
-	if &filetype == 'cpp'
+	if &filetype == 'cpp' || &filetype == 'cc'
 		call append(line(".")+6, "#include <iostream>")
 		call append(line(".")+7, "")
 		call append(line(".")+8, "using namespace std;")

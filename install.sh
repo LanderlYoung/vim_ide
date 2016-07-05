@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 VIM_CONF_HOME="${HOME}/.vim"
-VIM_IDE_PATH=$(dirname $(readlink -f $0))
+VIM_IDE_PATH=$(dirname $(readlink $0))
 
 VUNDLE_GIT_URL="https://github.com/gmarik/Vundle.vim.git"
 VIM_VUNDLE_PATH=${VIM_CONF_HOME}/bundle/Vundle.vim
