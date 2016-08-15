@@ -50,7 +50,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx git textmate emoji)
+plugins=(osx git adb python svn emoji)
 
 # User configuration
 
@@ -104,17 +104,6 @@ eval "$(thefuck --alias fuck)"
 #software config
 export TODO_FORMAT=pretty
 
-#handy fucntion
-function show_finder_hidden_file {
-    defaults write com.apple.finder AppleShowAllFiles TRUE
-    killall Finder
-}
-
-function hide_finder_hidden_file {
-    defaults write com.apple.finder AppleShowAllFiles FALSE
-    killall Finder
-}
-
 function color {
     colordiff -U "$@" | less -RF
 }
@@ -127,7 +116,3 @@ alias rm='trash'
 if [[ -e ~/.zshmd ]];then
     source ~/.zshmd
 fi
-
-#login greet
-echo -e '   [TODOs]:'
-todo ls --all

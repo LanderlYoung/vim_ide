@@ -237,12 +237,6 @@ cmap w!! %!sudo tee >/dev/null %
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" sublime key bindings
-nmap <D-]> >>
-nmap <D-[> <<
-vmap <D-[> <gv
-vmap <D-]> >gv
-
 " for macvim
 if has("gui_running")
     "set go=aAce  " remove toolbar
