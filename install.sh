@@ -1,18 +1,12 @@
 #! /usr/bin/env bash
 
-VIM_IDE_PATH=""
 VIM_CONF_HOME="${HOME}/.vim"
+VIM_IDE_PATH=`pwd`
 
-ZSHRC_PATH=${HOME}/.zshrc
+VUNDLE_GIT_URL="https://github.com/gmarik/Vundle.vim.git"
+VIM_VUNDLE_PATH=${VIM_CONF_HOME}/bundle/Vundle.vim
 
-#to be compatiable with unix(OS X)
-if [[ `uname` == "Darwin" ]]; then
-    VIM_IDE_PATH=$(dirname $(realpath $0))
-else
-    VIM_IDE_PATH=$(dirname $(readlink -f $0))
-fi
-
-doInstallVim() {
+doInstall() {
     echo "installing: $VIM_IDE_PATH -> $VIM_CONF_HOME"
     ln -s $VIM_IDE_PATH $VIM_CONF_HOME
     echo "installing vundle"
@@ -21,12 +15,7 @@ doInstallVim() {
     vim -c "PluginInstall"
 }
 
-doInstalZshrc() {
-    echo "${VIM_IDE_PATH}/zshrc -> ${ZSHRC_PATH}"
-    ln -s ${VIM_IDE_PATH}/zshrc ${ZSHRC_PATH}
-}
-
-if [[ -e $VIM_CONF_HOME || -h $VIM_CONF_HOME ]]; then
+if [[ -e $VIM_CONF_HOME ]]; then
     echo "directory \"$VIM_CONF_HOME\" existed. Delete it? (N/y)"
     read override
     if [[ $override == "y" || $override == "Y" ]]; then
@@ -36,23 +25,7 @@ if [[ -e $VIM_CONF_HOME || -h $VIM_CONF_HOME ]]; then
         echo "aborting"
         exit 1
     fi
-    unset override
 fi
 
-if [[ -e $ZSHRC_PATH || -h $ZSHRC_PATH ]]; then
-    echo "zshrc \"${ZSHRC_PATH}\" existed. Delete it? (N/y)"
-    read override
-    if [[ $override == "y" || $override == "Y" ]]; then
-        echo "removing \"${ZSHRC_PATH}\""
-        rm -rf ${ZSHRC_PATH}
-    else
-        echo "aborting"
-        exit 2
-    fi
-fi
-
-doInstalZshrc
-
-doInstallVim
-
+doInstall
 
