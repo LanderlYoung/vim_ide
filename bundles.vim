@@ -22,7 +22,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 "------ snipmate dependencies -------
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
+"Plugin 'tomtom/tlib_vim'
 
 "-----------------
 " Fast navigation
@@ -64,9 +64,9 @@ Plugin 'nvie/vim-togglemouse'
 " Syntax/Indent for language enhancement
 "----------------------------------------
 "------- web backend ---------
-Plugin '2072/PHP-Indenting-for-VIm'
+"Plugin '2072/PHP-Indenting-for-VIm'
 "Plugin 'tpope/vim-rails'
-Plugin 'lepture/vim-jinja'
+"Plugin 'lepture/vim-jinja'
 "Plugin 'digitaltoad/vim-jade'
 
 "------- web frontend ----------
