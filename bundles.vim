@@ -22,7 +22,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 "------ snipmate dependencies -------
 Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
+Plugin 'tomtom/tlib_vim'
 
 "-----------------
 " Fast navigation

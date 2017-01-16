@@ -82,11 +82,6 @@ func! Rungdb()
     endif
 endfunc
 
-:inoremap , , 
-
-"""for ctags"""
-"set tags+="D:\Program Files\Vim\vimfiles\vim_ide\tags"
-
 func! Gentag()
     exec '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .'
 endfunc
