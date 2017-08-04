@@ -25,9 +25,9 @@ PATH=$PATH:$ANDROID_SDK/platform-tools:$ANDROID_NDK
 PATH=$PATH:${HOME}/Applications/tools/bin/
 export PATH
 
+# soft ware config
 DEFAULT_USER=young
 eval "$(thefuck --alias fuck)"
-
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh  ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 function color {
@@ -43,6 +43,7 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bott
 alias addr2line=$NDK_HOME/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/bin/aarch64-linux-android-addr2line
 alias sss='$ANDROID_SDK/platform-tools/systrace/systrace.py -t 10 -b 40960 -a com.tencent.radio.debug -o trace-`date +%s`.html'
 
+# customized functions
 # dump droid heap
 function droid_dd() {
     PACKAGE_NAME=$1
