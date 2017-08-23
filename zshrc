@@ -6,10 +6,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(osx git adb brew python svn emoji)
 
 source $ZSH/oh-my-zsh.sh
-#add machine depend configs
-if [[ -e "${HOME}/.zshmd" ]];then
-    source "${HOME}/.zshmd"
-fi
 
 export LANG=en_US.UTF-8
 
@@ -37,6 +33,8 @@ alias colordiff='colordiff -u 8'
 alias diff='colordiff -u 8'
 alias rm='trash'
 alias pc='proxychains4 -q'
+# colorls -> gem install colorls -> https://github.com/athityakumar/colorls
+alias lc='colorls'
 export EDITOR='vim'
 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
@@ -64,4 +62,9 @@ function droid_dd() {
     echo "#remove tmp hprof"
     mv -f droid-${FILE_NAME} ${FILE_NAME}
 }
+
+#add machine depend configs
+if [[ -e "${HOME}/.zshmd" ]];then
+    source "${HOME}/.zshmd"
+fi
 
