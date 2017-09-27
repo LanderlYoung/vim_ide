@@ -59,6 +59,13 @@ function droid_hd() {
 
     echo "> dump heap for ${PACKAGE_NAME}"
     ${ADB} shell "am dumpheap ${PACKAGE_NAME} ${PATH_IN_PHONE}"
+    if [[ $? != 0 ]]; then
+        echo
+        ${ADB} devices
+        echo "run command:"
+        echo "\e[38;5;82mexport ANDROID_SERIAL="
+        return
+    fi
     # I don't want to... But it smees adb shell can't block untils it's done!
     sleep 1
 
