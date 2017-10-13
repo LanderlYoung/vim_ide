@@ -11,9 +11,12 @@ export LANG=en_US.UTF-8
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export JAVA_HOME=$(/usr/libexec/java_home)
+if [[ -z $JAVA_HOME && -x /usr/libexec/java_home ]]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 export ANDROID_SDK=${HOME}/Applications/android/sdk
 export ANDROID_HOME=${ANDROID_SDK}
+export android_home=${ANDROID_SDK}
 export ANDROID_NDK=${HOME}/Applications/android/ndk
 export NDK_HOME=${ANDROID_NDK}
 
@@ -57,6 +60,9 @@ function droid_hd() {
 
     ${ADB} shell rm ${PATH_IN_PHONE} 2> /dev/null
 
+    echo "cause GC for ${PACKAGE_NAME}"
+    ${ADB} shell pkill -l 10 ${PACKAGE_NAME}
+
     echo "> dump heap for ${PACKAGE_NAME}"
     ${ADB} shell "am dumpheap ${PACKAGE_NAME} ${PATH_IN_PHONE}"
     if [[ $? != 0 ]]; then
@@ -67,7 +73,7 @@ function droid_hd() {
         return
     fi
     # I don't want to... But it smees adb shell can't block untils it's done!
-    sleep 1
+    sleep 3
 
     echo "> list heap for ${PATH_IN_PHONE}"
     ${ADB} shell ls -lh ${PATH_IN_PHONE}
@@ -83,7 +89,7 @@ function droid_hd() {
 
     echo "> remove tmp hprof"
     mv -f droid-${FILE_NAME} ${FILE_NAME}
-
+    ls -lh ${FILE_NAME}
     echo "done! file: \e[38;5;82m ${FILE_NAME}"
 }
 
