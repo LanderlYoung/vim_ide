@@ -3,7 +3,7 @@ export ZSH=${HOME}/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"
-plugins=(osx git adb brew python svn emoji)
+plugins=(osx git adb brew python svn emoji zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -12,7 +12,8 @@ export LANG=en_US.UTF-8
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 if [[ -z $JAVA_HOME && -x /usr/libexec/java_home ]]; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
+    # default to JDK 8
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 fi
 export ANDROID_SDK=${HOME}/Applications/android/sdk
 export ANDROID_HOME=${ANDROID_SDK}
@@ -85,7 +86,7 @@ function droid_hd() {
     ${ADB} shell rm ${PATH_IN_PHONE}
 
     echo "> hprof-conv it"
-    ${HPROF_CONV} ${FILE_NAME} droid-${FILE_NAME}
+    ${HPROF_CONV} -z ${FILE_NAME} droid-${FILE_NAME}
 
     echo "> remove tmp hprof"
     mv -f droid-${FILE_NAME} ${FILE_NAME}

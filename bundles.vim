@@ -89,6 +89,9 @@ Plugin 'tpope/vim-markdown'
 "------- Go ----------
 Plugin 'jnwhiteh/vim-golang'
 
+"------- Kotlin ------
+Plugin 'udalov/kotlin-vim'
+
 "------- FPs ------
 Plugin 'kien/rainbow_parentheses.vim'
 " Plugin 'wlangstroth/vim-racket'
