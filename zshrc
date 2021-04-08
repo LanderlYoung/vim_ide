@@ -23,6 +23,8 @@ export NDK_HOME=${ANDROID_NDK}
 
 PATH=$PATH:$ANDROID_SDK/platform-tools:$ANDROID_NDK
 PATH=$PATH:${HOME}/Applications/tools/bin/
+PATH=$PATH:${HOME}/Documents/code/chromium/depot_tools
+PATH=$PATH:${HOME}/.cargo/bin
 export PATH
 
 # soft ware config
@@ -35,15 +37,19 @@ function color {
 }
 alias colordiff='colordiff -u 8'
 alias diff='colordiff -u 8'
-alias rm='trash'
+alias rm='trash -F'
 alias pc='proxychains4 -q'
 # colorls -> gem install colorls -> https://github.com/athityakumar/colorls
 alias lc='colorls'
 export EDITOR='vim'
 
+export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 alias addr2line=$NDK_HOME/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/bin/aarch64-linux-android-addr2line
 alias sss='$ANDROID_SDK/platform-tools/systrace/systrace.py -t 10 -b 40960 -a com.tencent.radio.debug -o trace-`date +%s`.html'
+
+# rust mirrors
+export RUSTUP_DIST_SERVE=https://mirrors.tuna.tsinghua.edu.cn/rustup
 
 ADB=${ANDROID_HOME}/platform-tools/adb
 HPROF_CONV=${ANDROID_HOME}/platform-tools/hprof-conv
