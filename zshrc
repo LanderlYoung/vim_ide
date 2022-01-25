@@ -3,7 +3,13 @@ export ZSH=${HOME}/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"
-plugins=(osx git adb brew python svn emoji zsh-completions)
+plugins=(macos git adb brew python svn emoji 
+    zsh-completions
+    # https://github.com/LanderlYoung/zsh-command-time
+    command-time
+    # https://github.com/zsh-users/zsh-autosuggestions
+    zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -15,7 +21,8 @@ if [[ -z $JAVA_HOME && -x /usr/libexec/java_home ]]; then
     # default to JDK 8
     export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 fi
-export ANDROID_SDK=${HOME}/Applications/android/sdk
+function switch_jdk() { export JAVA_HOME=$(/usr/libexec/java_home -v $1); echo $JAVA_HOME }
+export ANDROID_SDK=${HOME}/Applications/Android/sdk
 export ANDROID_HOME=${ANDROID_SDK}
 export android_home=${ANDROID_SDK}
 export ANDROID_NDK=${HOME}/Applications/android/ndk
@@ -27,8 +34,12 @@ PATH=$PATH:${HOME}/Documents/code/chromium/depot_tools
 PATH=$PATH:${HOME}/.cargo/bin
 export PATH
 
-# soft ware config
-DEFAULT_USER=young
+# plugins config
+ZSH_COMMAND_TIME_MIN_SECONDS=10
+ZSH_COMMAND_TIME_EXCLUDE=(vim mcedit)
+
+# software config
+DEFAULT_USER=landerl
 eval "$(thefuck --alias fuck)"
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh  ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
@@ -37,14 +48,15 @@ function color {
 }
 alias colordiff='colordiff -u 8'
 alias diff='colordiff -u 8'
-alias rm='trash -F'
+alias rm='trash' # trash -F; brew install trash
 alias pc='proxychains4 -q'
 # colorls -> gem install colorls -> https://github.com/athityakumar/colorls
 alias lc='colorls'
 export EDITOR='vim'
+alias vs='open -a Visual\ Studio\ Code'
 
 export HOMEBREW_NO_AUTO_UPDATE=1
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles/bottles
 alias addr2line=$NDK_HOME/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/bin/aarch64-linux-android-addr2line
 alias sss='$ANDROID_SDK/platform-tools/systrace/systrace.py -t 10 -b 40960 -a com.tencent.radio.debug -o trace-`date +%s`.html'
 
@@ -114,6 +126,4 @@ function droid_mm() {
 if [[ -e "${HOME}/.zshmd" ]];then
     source "${HOME}/.zshmd"
 fi
-
-
 

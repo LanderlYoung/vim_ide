@@ -29,7 +29,7 @@ func SetTitle()
 
 	if &filetype == 'java'
 		call append(line(".")+6,"public class ".expand("%<").expand(" {"))
-		"call append(line(".")+7,"")
+        call append(line(".")+7,"}")
 	endif
 
 	if &filetype == 'c'

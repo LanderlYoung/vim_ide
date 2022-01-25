@@ -13,52 +13,54 @@ Plugin 'gmarik/Vundle.vim'
 "------------------
 " Code Completions
 "------------------
-Plugin 'Shougo/neocomplcache'
-Plugin 'mattn/emmet-vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'ervandew/supertab'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'rhysd/vim-clang-format'
+""Plugin 'Shougo/neocomplcache'
+""Plugin 'mattn/emmet-vim'
+""Plugin 'Raimondi/delimitMate'
+""Plugin 'ervandew/supertab'
 " snippets
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
+""Plugin 'garbas/vim-snipmate'
+""Plugin 'honza/vim-snippets'
 "------ snipmate dependencies -------
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
+""Plugin 'MarcWeber/vim-addon-mw-utils'
+""Plugin 'tomtom/tlib_vim'
 
 "-----------------
 " Fast navigation
 "-----------------
-Plugin 'edsono/vim-matchit'
-Plugin 'Lokaltog/vim-easymotion'
+""Plugin 'edsono/vim-matchit'
+""Plugin 'Lokaltog/vim-easymotion'
 
 "--------------
 " Fast editing
 "--------------
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'sjl/gundo.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'nathanaelkane/vim-indent-guides'
+""Plugin 'tpope/vim-surround'
+""Plugin 'scrooloose/nerdcommenter'
+""Plugin 'sjl/gundo.vim'
+""Plugin 'godlygeek/tabular'
+""Plugin 'nathanaelkane/vim-indent-guides'
 
 "--------------
 " IDE features
 "--------------
-Plugin 'scrooloose/nerdtree'
+""Plugin 'scrooloose/nerdtree'
 "Plugin 'humiaozuzu/TabBar'
-Plugin 'majutsushi/tagbar'
-Plugin 'mileszs/ack.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'scrooloose/syntastic'
-Plugin 'bronson/vim-trailing-whitespace'
+""Plugin 'majutsushi/tagbar'
+""Plugin 'mileszs/ack.vim'
+""Plugin 'kien/ctrlp.vim'
+""Plugin 'tpope/vim-fugitive'
+""Plugin 'Lokaltog/vim-powerline'
+""Plugin 'scrooloose/syntastic'
+""Plugin 'bronson/vim-trailing-whitespace'
 "cscope
-Plugin 'simplyzhao/cscope_maps.vim'
+""Plugin 'simplyzhao/cscope_maps.vim'
 
 "-------------
 " Other Utils
 "-------------
 " Plugin 'humiaozuzu/fcitx-status'
-Plugin 'nvie/vim-togglemouse'
+""Plugin 'nvie/vim-togglemouse'
 
 "----------------------------------------
 " Syntax/Indent for language enhancement
@@ -70,11 +72,11 @@ Plugin 'nvie/vim-togglemouse'
 "Plugin 'digitaltoad/vim-jade'
 
 "------- web frontend ----------
-Plugin 'othree/html5.vim'
+""Plugin 'othree/html5.vim'
 " Plugin 'tpope/vim-haml'
 Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'nono/jquery.vim'
+""P""lugin 'kchmck/vim-coffee-script'
+""Plugin 'nono/jquery.vim'
 " Plugin 'groenewege/vim-less'
 " Plugin 'wavded/vim-stylus'
 " Plugin 'nono/vim-handlebars'
@@ -87,7 +89,7 @@ Plugin 'tpope/vim-markdown'
 " Plugin 'tpope/vim-endwise'
 
 "------- Go ----------
-Plugin 'jnwhiteh/vim-golang'
+""Plugin 'jnwhiteh/vim-golang'
 
 "------- Kotlin ------
 Plugin 'udalov/kotlin-vim'
